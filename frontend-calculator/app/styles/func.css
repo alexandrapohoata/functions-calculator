@@ -1,0 +1,147 @@
+.chartBox {
+    display: block;
+    margin-left: 40px;
+    /* margin-top: 100px; */
+    border: 5px solid green;
+    border-radius: 50px;
+    max-height: 100%;
+}
+
+.chart {
+    margin: 20px 20px 20px 0;
+    transition: all linear 1s;
+}
+
+html {
+    display: block; 
+    /* max-width: 90%; */
+    margin: auto;
+    width: 70%;
+    margin: 0 auto;
+    /* margin-bottom: 2vh; */
+}
+
+.input-container {
+    margin: 10px 0px;
+    transition: all linear 0.5s;
+    background: transparent;
+    padding: 0px;
+}
+
+.param-input.ng-invalid {
+    color:white;
+    background: green;
+    opacity: 0.4;
+    transition: all linear 0.5s;
+}
+
+.radioValue {
+    margin-left: 5px;
+    color: rgb(67, 174, 86);
+    font-weight: bold;
+}
+
+md-radio-button.md-default-theme .md-on, md-radio-button .md-on {
+    background-color: rgb(67, 174, 86);
+}
+
+md-radio-button.md-default-theme.md-checked .md-off, md-radio-button.md-checked .md-off {
+    border-color: rgb(67, 174, 86);
+}
+
+md-inline-form {
+    background-color: aqua;
+}
+
+.md-display-3 {
+    text-align: center;
+}
+
+.fade {
+    max-height: 100%;
+    transition: all linear 1s;
+    opacity: 1;
+}
+
+.fade.ng-hide {
+    opacity: 0;
+}
+.ng-hide {
+    opacity: 0;
+    transition: none 0;
+}
+
+.container {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 20px;
+    border: 13px solid green;
+    border-radius: 100px;
+}
+
+md-input-container .md-input {
+    color: green;
+}
+
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
+    background-color: green;
+}
+
+md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple {
+    color: green;
+}
+
+.md-button.md-default-theme.md-hue-1.md-primary, .md-button.md-hue-1.md-primary {
+    color: green;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.step-list-item.ng-enter,
+.step-list-item.ng-leave,
+.step-list-item.ng-move {
+    overflow: hidden;
+    transition: 0.5s linear all;
+}
+
+.step-list-item.ng-enter,
+.step-list-item.ng-leave.ng-leave-active,
+.step-list-item.ng-move {
+    height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.step-list-item.ng-enter.ng-enter-active,
+.step-list-item.ng-leave,
+.step-list-item.ng-move.ng-move-active {
+    height: 250px;
+    margin-bottom: 20px;
+    opacity: 1;
+    padding-bottom: 4px;
+    padding-top: 15px;
+}
+
+.steps {
+    list-style: none;
+}
+  
+.steps li {
+    clear: both;
+    height: 250px;
+    padding-top: 15px;
+}
+
+.iteration {
+    font-weight: bold;
+}
+
+
+.step-block {
+    border-top: 1px solid black;
+    /* border-top-left-radius: 20px; */
+    padding: 10px;
+    margin: 10px;
+}

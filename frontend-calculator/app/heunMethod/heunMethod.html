@@ -1,0 +1,25 @@
+<ul class="steps">
+    <style>
+        .steps li {
+            height: 440px;
+        }
+    </style>
+    <li ng-if="heunMethodCtrl.showSteps" class="step-list-item" 
+        ng-repeat="step in heunMethodCtrl.steps track by $index">
+        <div class="step-block">
+            <p class="iteration">Iteration #{{$index + 1}}</p>
+            <p>result = `f(x_{{$index}}, y_{{$index}}) = f({{step.x0}}, {{step.y0}})`</p>
+            <p>result = `{{step.result}}`</p>
+            <p>`y_{{$index+1}}^0` = `y_{{$index}} +` result `* h` = {{step.y0}}` {{step.result ? "" : "+"}} {{step.result}} * h`</p>
+            <p>`x_{{$index+1}}` = `x_{{$index}} + h`</p>
+            <p>result2 = `f(x_{{$index+1}}, y_{{$index+1}}^0) = f({{step.x1}}, {{step.y1_0}})`</p>
+            <p>result2 = `{{step.result1}}`</p>
+            <p>`y_{{$index+1}}` = `y_{{$index}} +(`result` + `result2)`*h/2`</p>
+            <p>`y_{{$index+1}}` = `{{step.y0}} +`({{step.result}} + {{step.result1}})`*h/2`</p>
+
+
+            <p>`y_{{$index}}` = `y_{{$index+1}}` = `{{step.x1}}`</p>
+            <p>`x_{{$index}}` = `x_{{$index+1}}` = `{{step.y1}}`</p>
+        </div>
+    </li>
+</ul>

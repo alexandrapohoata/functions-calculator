@@ -1,0 +1,14 @@
+<ul class="steps">
+    <li ng-if="eulerMethodCtrl.showSteps" class="step-list-item" 
+        ng-repeat="step in eulerMethodCtrl.steps track by $index">
+        <div class="step-block">
+            <p class="iteration">Iteration #{{$index + 1}}</p>
+            <p>result = `f(x_{{$index}}, y_{{$index}}) = f({{step.x}}, {{step.y}})`</p>
+            <p>result = `{{step.result}}`</p>
+            <p>`y_{{$index+1}}` = `y_{{$index}} +` result `* h`</p>
+            <p>`y_{{$index+1}}` = `{{step.y}}`</p>
+            <p>`x_{{$index+1}}` = `x_{{$index}} + h`</p>
+            <p>`x_{{$index+1}}` = {{step.x}}</p>
+        </div>
+    </li>
+</ul>

@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en-US" ng-app="func">
-	<script src="lib/angular/angular.min.js"></script>
-	<script src="lib/angular-route/angular-route.js"></script>
-	<!-- <script src="../node_modules/chart.js/dist/chart.min.js"></script> -->
-	<!-- <script src="lib/angular-chart/angular-chart.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.3/angular-chart.min.js"></script>
-	<script src="app.module.js"></script>
-    <script src="app.constants.js"></script>
-    <script src="app.config.js"></script>
-    <script src="app.service.js"></script>
-	<!-- <script src="app.service.js"></script> -->
-	<script src="displayChart/displayChart.service.js"></script>
-	<script src="displayChart/displayChart.component.js"></script>
 	<head>
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular-route/angular-route.js"></script>
+		<script src="lib/angular-aria/angular-aria.min.js"></script>
+		<script src="lib/angular-animate/angular-animate.min.js"></script>
+		<script src="lib/angular-messages/angular-messages.min.js"></script>
+		<script src="lib/angular-material/angular-material.min.js"></script>
+		<!-- <script src="../node_modules/chart.js/dist/chart.min.js"></script> -->
+		<!-- <script src="lib/angular-chart/angular-chart.min.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.3/angular-chart.min.js"></script>
+		<script async="false" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+		<script src="app.module.js"></script>
+		<script src="app.constants.js"></script>
+		<script src="app.config.js"></script>
+		<script src="app.service.js"></script>
+		<script src="displayChart/displayChart.service.js"></script>
+		<script src="displayChart/displayChart.component.js"></script>
+		<script src="eulerMethod/eulerMethod.component.js"></script>
+		<script src="heunMethod/heunMethod.component.js"></script>
+		<script src="midpointMethod/midpointMethod.component.js"></script>
+		<script src="rungeKuttaMethod/rungeKuttaMethod.component.js"></script>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="styles/func.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="lib/angular-material/angular-material.css">
 		<meta charset="utf-8">
 		<title>Function calculator</title>
 	</head>

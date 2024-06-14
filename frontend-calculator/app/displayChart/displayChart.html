@@ -1,6 +1,68 @@
-<div>
-    <canvas id="line" class="chart chart-line" chart-data="displayChartCtrl.chartData.data"
-    chart-labels="displayChartCtrl.chartData.labels" chart-series="displayChartCtrl.chartData.series" chart-options="displayChartCtrl.chartData.options"
-    chart-dataset-override="displayChartCtrl.chartData.datasetOverride">
-    </canvas>
+<div class="container">
+    <h1 class="md-display-3">Function calculator (ODE Solution)</h1> 
+    
+    <p>Given `y'(x) = f(x, y)`, where `y(x_0) = y_0`, then</label>
+    <md-input-container class="input-container md-block">
+        <label>Enter f(x, y) = {{ displayChartCtrl.stringFunction }}</label>
+        <input class="text" ng-model="displayChartCtrl.stringFunction">
+    </md-input-container>
+    <div layout="row"  ng-cloak>
+    <!-- <div layout="row" class="demo-inline-form-container" ng-cloak> -->
+        <form class="md-inline-form">
+            <label id="selectedMethod">Method: </label>
+            <span class="radioValue">{{ displayChartCtrl.methods[displayChartCtrl.currentMethod - 1].name }}</span>
+            
+            <div layout="column">
+            <!-- <div layout="column" layout-wrap> -->
+                <md-radio-group layout="column"
+                    ng-model="displayChartCtrl.currentMethod"
+                    aria-labelledby="selectedMethod">
+                    <md-radio-button
+                        ng-repeat="method in displayChartCtrl.methods"
+                        ng-value="method.id">
+                        {{method.name}}
+                    </md-radio-button>
+                </md-radio-group>
+                
+                <md-input-container class="input-container">
+                    <label>Enter `x_0`</label>
+                    <input class="param-input" ng-pattern="/^[0-9]+([,.][0-9]+)?$/" type="text" ng-model="displayChartCtrl.x_initial">
+                </md-input-container>
+    
+                <md-input-container class="input-container">
+                    <label>Enter `y_0`</label>
+                    <input class="param-input" ng-pattern="/^[0-9]+([,.][0-9]+)?$/" type="text" ng-model="displayChartCtrl.y_initial">
+                </md-input-container>
+
+                <md-input-container class="input-container">
+                    <label>Enter step `h`</label>
+                    <input class="param-input" ng-pattern="/^[0-9]+([,.][0-9]+)?$/" type="text" ng-model="displayChartCtrl.h">
+                </md-input-container>
+
+                <md-checkbox color="green" class="input-container" ng-model="displayChartCtrl.computeByIterations" aria-label="">Compute by iterations</md-checkbox>
+                <md-input-container class="input-container">
+                    <label>Enter iterations `n`</label>
+                    <input ng-disabled="!displayChartCtrl.computeByIterations" class="param-input" ng-pattern="/^[0-9]+([,.][0-9]+)?$/" type="text" ng-model="displayChartCtrl.iterations">
+                </md-input-container>
+                <md-button ng-show="displayChartCtrl.success" ng-click="displayChartCtrl.funcshowSteps()" class="md-primary md-hue-1">{{displayChartCtrl.showSteps ? "Hide" : "Show"}} steps</md-button>
+            </div>
+        </form>
+        <div layout="column" flex>
+            <div ng-show="displayChartCtrl.success" class="chartBox fade">
+                <canvas  id="line" class="chart chart-line" chart-data="displayChartCtrl.chartData.data"
+                chart-labels="displayChartCtrl.chartData.labels" chart-series="displayChartCtrl.chartData.series" chart-options="displayChartCtrl.chartData.options"
+                chart-dataset-override="displayChartCtrl.chartData.datasetOverride" offset="true" chart-colors="displayChartCtrl.chartData.colors">
+                </canvas>
+            </div>
+            <md-button ng-click="displayChartCtrl.funcComputeFunction()" class="md-primary md-hue-1">Compute</md-button>
+            <md-button ng-show="displayChartCtrl.success" ng-click="displayChartCtrl.funcShowLabels()" class="md-primary md-hue-1">{{ displayChartCtrl.showLabels ? "Hide" : "Show" }} x-labels</md-button>
+            <md-button ng-show="displayChartCtrl.success" ng-click="displayChartCtrl.funcSetPrecision()" class="md-primary md-hue-1">{{ displayChartCtrl.lowPrecision ? "Revert to original values" : "Format x-labels" }}</md-button>   
+        </div>
+    </div>
+    <div layout="column">
+        <euler-method ng-if="displayChartCtrl.lastMethodId == 1" steps="displayChartCtrl.steps" show-steps="displayChartCtrl.showSteps"></euler-method>
+        <heun-method ng-if="displayChartCtrl.lastMethodId == 2" steps="displayChartCtrl.steps" show-steps="displayChartCtrl.showSteps"></heun-method>
+        <midpoint-method ng-if="displayChartCtrl.lastMethodId == 3" steps="displayChartCtrl.steps" show-steps="displayChartCtrl.showSteps"></midpoint-method>
+        <runge-kutta-method ng-if="displayChartCtrl.lastMethodId == 4" steps="displayChartCtrl.steps" show-steps="displayChartCtrl.showSteps"></runge-kutta-method>
+    </div>
 </div>

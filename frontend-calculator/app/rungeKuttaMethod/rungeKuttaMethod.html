@@ -1,0 +1,21 @@
+<ul class="steps">
+    <style>
+        .steps li {
+            height: 370px;
+        }
+    </style>
+    <li ng-if="rungeKuttaMethodCtrl.showSteps" class="step-list-item" 
+        ng-repeat="step in rungeKuttaMethodCtrl.steps track by $index">
+        <div class="step-block">
+            <p class="iteration">Iteration #{{$index + 1}}</p>
+            <p>`k1_{{$index}}` = `f(x_{{$index}}, y_{{$index}})` = `{{step.k1}}`</p>
+            <p>`k2_{{$index}}` = `f(x_{{$index}} + h/2, y_{{$index}} + (k1_{{$index}})/2 * h)` = `{{step.k2}}`</p>
+            <p>`k3_{{$index}}` = `f(x_{{$index}} + h/2, y_{{$index}} + (k2_{{$index}})/2 * h)` = `{{step.k3}}`</p>
+            <p>`k4_{{$index}}` = `f(x_{{$index}} + h, y_{{$index}} + k3_{{$index}} * h)` = `{{step.k4}}`</p>
+            <p>`k_{{$index}}` = `1/6 * (k1_{{$index}} + 2*k2_{{$index}} + 2*k3_{{$index}} + k4_{{$index}}) * h` = `{{step.k}}`</p>
+            <p>`x_{{$index+1}}` = `x_{{$index}} + h` = `{{step.x}}`</p>
+            <p>`y_{{$index+1}}` = `y_{{$index}} + k` = `{{step.y}}`</p>
+            <p>``</p>
+        </div>
+    </li>
+</ul>

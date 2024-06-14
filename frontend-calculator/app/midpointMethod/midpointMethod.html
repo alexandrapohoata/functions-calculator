@@ -1,0 +1,18 @@
+<ul class="steps">
+    <style>
+        .steps li {
+            height: 300px;
+        }
+    </style>
+    <li ng-if="midpointMethodCtrl.showSteps" class="step-list-item" 
+        ng-repeat="step in midpointMethodCtrl.steps track by $index">
+        <div class="step-block">
+            <p class="iteration">Iteration #{{$index + 1}}</p>
+            <p>`y_({{$index}}/2)` = `y_0 + f(x_{{$index}}, y_{{$index}}) * h/2` = `{{step.y0}} + {{step.result1}} * h/2`</p>
+            <p>`x_{{$index+1}}` = `x_{{$index}} + h` = `{{step.x0}} + h` = `{{step.x1}}`</p>
+            <p>`x_({{$index}}/2)` = `(x_{{$index}} + x_{{$index+1}}) / 2` = `({{step.x0}} + {{step.x1}}) / 2` = `{{step.x_2}}`</p>
+            <p>`y_{{$index+1}}` = `y_{{$index}} + f(x_({{$index}}/2), y_({{$index}}/2)) * h`</p>
+            <p>`y_{{$index+1}}` = `{{step.y0}} + {{step.result2}} * h` = `{{step.y1}}`</p>
+        </div>
+    </li>
+</ul>
